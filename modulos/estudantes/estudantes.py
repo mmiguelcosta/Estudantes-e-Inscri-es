@@ -15,11 +15,11 @@ def add():
 
 @bp_estudante.route('/save', methods=['POST'])
 def save():
+    id = request.form.get('id_estudante')
     nome = request.form.get('nome')
-    email = request.form.get('email')
-    senha = request.form.get('senha')
-    if nome and email and senha:
-        objeto = Estudante(nome, email, senha)
+    curso = request.form.get('curso')
+    if id and nome and curso:
+        objeto = Estudante(id, nome, curso)
         db.session.add(objeto)
         db.session.commit()
         flash('Estudante salvo')
