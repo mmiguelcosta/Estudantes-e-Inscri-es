@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block conteudo %}
+
+    {% set mensagens = get_flashed_messages() %}
+    {% if mensagens %}
+        {% for msg in mensagens %}
+            <div>
+                {{msg}}
+            </div>
+        {% endfor %}
+    {% endif %}
+    
+    <div class="adicionar">
+        <a href="/inscricoes/add">+Adicionar</a>
+    </div>
+    <table>
+        <tr>
+            <th>Disciplina</th>
+            <th>Semestre</th>
+            <th>Estudante</th>
+            <th>Editar</th>
+            <th>Remover</th>
+        </tr>
+        {% for inscricao in dados %}
+        <tr>
+            <td>{{inscricao.nome_disc}}</td>
+            <td>{{inscricao.semestre}}</td>
+            <td>{{inscricao.estudante.nome}}</td>
+            <td><a href="/inscricoes/edit/{{inscricao.id}}">[✎]</a></td>
+            <td><a href="/inscricoes/remove/{{inscricao.id}}">[X]</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+
+{% endblock %}

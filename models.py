@@ -16,16 +16,16 @@ class Estudante(db.Model):
 class Inscricao(db.Model):
     __tablename__ = 'inscricao'
     id_inscricao = db.Column(db.Integer, primary_key=True)
-    disciplina = db.Column(db.String(100))
+    nome_disc = db.Column(db.String(100))
     semestre = db.Column(db.String(10))
     id_estudante = db.Column(db.Integer, db.ForeignKey('estudante.id_estudante'))
 
     estudante = db.relationship('Estudante', foreign_keys=id_estudante)        
 
     def __init__(self, disciplina, semestre, id_estudante):
-        self.disciplina = disciplina
+        self.nome_disc = disciplina
         self.semestre = semestre
         self.id_estudante = id_estudante
 
     def __repr__(self):
-        return f"<Inscrição {self.estudante.nome} - {self.disciplina} - {self.semestre} >"
+        return f"<Inscrição {self.estudante.nome} - {self.nome_disc} - {self.semestre} >"
