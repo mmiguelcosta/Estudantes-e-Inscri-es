@@ -2,7 +2,7 @@ from database import db
 
 class Estudante(db.Model):
     __tablename__ = 'estudante'
-    id_estudante = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True)
     nome = db.Column(db.String(100))
     curso = db.Column(db.String(100))
 
@@ -15,10 +15,10 @@ class Estudante(db.Model):
 
 class Inscricao(db.Model):
     __tablename__ = 'inscricao'
-    id_inscricao = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True)
     nome_disc = db.Column(db.String(100))
     semestre = db.Column(db.String(10))
-    id_estudante = db.Column(db.Integer, db.ForeignKey('estudante.id_estudante'))
+    id_estudante = db.Column(db.Integer, db.ForeignKey('estudante.id'))
 
     estudante = db.relationship('Estudante', foreign_keys=id_estudante)        
 

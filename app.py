@@ -9,12 +9,12 @@ from flask_migrate import Migrate
 db.init_app(app)
 migrate = Migrate(app, db)
 from models import Estudante, Inscricao
-from modulos.estudantes.estudantes import bp_estudante
-app.register_blueprint(bp_estudante, url_prefix='/estudantes')
+from modulos.estudantes.estudantes import bp_estudantes
+app.register_blueprint(bp_estudantes, url_prefix='/estudantes')
 
 
-from modulos.inscricoes.inscricoes import bp_inscricao
-app.register_blueprint(bp_inscricao, url_prefix='/inscricoes')
+from modulos.inscricoes.inscricoes import bp_inscricoes
+app.register_blueprint(bp_inscricoes, url_prefix='/inscricoes')
 
 @app.route('/')
 def index():

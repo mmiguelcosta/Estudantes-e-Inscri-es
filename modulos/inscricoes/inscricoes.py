@@ -23,7 +23,7 @@ def save():
     semestre = request.form.get("semestre")
     id_estudante = request.form.get("id_estudante")
 
-    id_estudante = Estudante.query.all()
+    estudante = Estudante.query.all()
 
     if nome_disc and semestre and id_estudante:
         db_inscricao = Inscricao(nome_disc, semestre, id_estudante)

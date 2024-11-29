@@ -12,7 +12,7 @@
     {% endif %}
 
     <fieldset>
-        <form action="/estudantes/save" method="post">
+        <form action="/inscricoes/save" method="post">
             <div>
                 <label for="nome_disc">Disciplina: </label>
                 <input type="text" name="nome_disc" id="nome_disc">
@@ -23,7 +23,7 @@
             </div>
             <div>
                 <label for="estudante">Estudante: </label>
-                <select name="id_estudante id="estudante">
+                <select name="id_estudante" id="estudante">
                     <option value=""></option>
                     {% for e in estudantes %}
                     <option value="{{e.id}}">{{e.nome}}</option>
